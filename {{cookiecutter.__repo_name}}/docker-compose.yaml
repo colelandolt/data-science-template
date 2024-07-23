@@ -8,7 +8,7 @@ services:
       - python3
       - src/data.py
     volumes:
-      - ./:/{{cookiecutter.__directory_name}}/
+      - ./:/{{cookiecutter.__repo_name}}/
       - ~/.aws/credentials:/home/root/.aws/credentials
     mem_limit: 8g
     cpus: 0.5
@@ -21,7 +21,7 @@ services:
       - python3
       - src/train.py
     volumes:
-      - ./:/{{cookiecutter.__directory_name}}/
+      - ./:/{{cookiecutter.__repo_name}}/
       - ~/.aws/credentials:/home/root/.aws/credentials
     mem_limit: 8g
     cpus: 0.5
@@ -34,7 +34,7 @@ services:
       - python3
       - src/predict.py
     volumes:
-      - ./:/{{cookiecutter.__directory_name}}/
+      - ./:/{{cookiecutter.__repo_name}}/
       - ~/.aws/credentials:/home/root/.aws/credentials
     mem_limit: 8g
     cpus: 0.5
@@ -47,7 +47,7 @@ services:
       - python3
       - src/evaluate.py
     volumes:
-      - ./:/{{cookiecutter.__directory_name}}/
+      - ./:/{{cookiecutter.__repo_name}}/
       - ~/.aws/credentials:/home/root/.aws/credentials
     mem_limit: 8g
     cpus: 0.5
@@ -60,7 +60,7 @@ services:
       - python3
       - src/visualize.py
     volumes:
-      - ./:/{{cookiecutter.__directory_name}}/
+      - ./:/{{cookiecutter.__repo_name}}/
       - ~/.aws/credentials:/home/root/.aws/credentials
     mem_limit: 8g
     cpus: 0.5
@@ -73,7 +73,7 @@ services:
       - python3
       - src/report.py
     volumes:
-      - ./:/{{cookiecutter.__directory_name}}/
+      - ./:/{{cookiecutter.__repo_name}}/
       - ~/.aws/credentials:/home/root/.aws/credentials
     mem_limit: 8g
     cpus: 0.5
