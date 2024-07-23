@@ -1,0 +1,79 @@
+version: "2.2"
+services:
+  data:
+    build: 
+      context: .
+      dockerfile: ./Dockerfile
+    command:
+      - python3
+      - src/data.py
+    volumes:
+      - ./:/{{cookiecutter.__directory_name}}/
+      - ~/.aws/credentials:/home/root/.aws/credentials
+    mem_limit: 8g
+    cpus: 0.5
+  
+  train:
+    build: 
+      context: .
+      dockerfile: ./Dockerfile
+    command:
+      - python3
+      - src/train.py
+    volumes:
+      - ./:/{{cookiecutter.__directory_name}}/
+      - ~/.aws/credentials:/home/root/.aws/credentials
+    mem_limit: 8g
+    cpus: 0.5
+
+  predict:
+    build: 
+      context: .
+      dockerfile: ./Dockerfile
+    command:
+      - python3
+      - src/predict.py
+    volumes:
+      - ./:/{{cookiecutter.__directory_name}}/
+      - ~/.aws/credentials:/home/root/.aws/credentials
+    mem_limit: 8g
+    cpus: 0.5
+
+  evaluate:
+    build: 
+      context: .
+      dockerfile: ./Dockerfile
+    command:
+      - python3
+      - src/evaluate.py
+    volumes:
+      - ./:/{{cookiecutter.__directory_name}}/
+      - ~/.aws/credentials:/home/root/.aws/credentials
+    mem_limit: 8g
+    cpus: 0.5
+
+  visualize:
+    build: 
+      context: .
+      dockerfile: ./Dockerfile
+    command:
+      - python3
+      - src/visualize.py
+    volumes:
+      - ./:/{{cookiecutter.__directory_name}}/
+      - ~/.aws/credentials:/home/root/.aws/credentials
+    mem_limit: 8g
+    cpus: 0.5
+
+  report:
+    build: 
+      context: .
+      dockerfile: ./Dockerfile
+    command:
+      - python3
+      - src/report.py
+    volumes:
+      - ./:/{{cookiecutter.__directory_name}}/
+      - ~/.aws/credentials:/home/root/.aws/credentials
+    mem_limit: 8g
+    cpus: 0.5
