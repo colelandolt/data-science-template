@@ -8,6 +8,7 @@ mlflow
 numpy
 openpyxl
 pandas
+pdoc
 python-dotenv
 pyyaml
 requests

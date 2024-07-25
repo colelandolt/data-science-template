@@ -32,6 +32,9 @@ pre-commit:
 test: 
 	pytest
 
+docs: ./src/*
+	pdoc --html --output-dir docs src
+
 data: ./src/data.py
 	$(PYTHON) ./src/data.py
 
@@ -50,7 +53,10 @@ visualize: ./src/visualize.py
 report: ./src/report.py
 	$(PYTHON) ./src/report.py
 
-pipeline: data train predict evaluate visualize report
+deploy: .src/deploy.py
+	$(PYTHON) ./src/deploy.py
+
+pipeline: data train predict evaluate visualize report deploy
 
 uninstall:
 	@echo "Uninstalling all packages..."
