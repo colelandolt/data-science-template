@@ -77,3 +77,16 @@ services:
       - ~/.aws/credentials:/home/root/.aws/credentials
     mem_limit: 8g
     cpus: 0.5
+
+  deploy:
+    build: 
+      context: .
+      dockerfile: ./Dockerfile
+    command:
+      - python3
+      - src/deploy.py
+    volumes:
+      - ./:/{{cookiecutter.__repo_name}}/
+      - ~/.aws/credentials:/home/root/.aws/credentials
+    mem_limit: 8g
+    cpus: 0.5
